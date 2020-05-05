@@ -1,4 +1,4 @@
-# FaceShow
+# Simon Lab
 
 关于 angular 的小 demo ,方便学习
 
