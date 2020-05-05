@@ -1,0 +1,60 @@
+<form nz-form [formGroup]="validateForm" class="form">
+  <div class="preview">
+    <img id="inputImg" [src]="previewUrl" />
+    <canvas id="overlay"></canvas>
+  </div>
+
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzFor="imageUrl">图片地址</nz-form-label>
+    <nz-form-control [nzSpan]="18">
+      <nz-space>
+        <nz-space-item>
+          <input nz-input formControlName="imageUrl" id="imageUrl" />
+        </nz-space-item>
+        <nz-space-item>
+          <button nz-button nzType="primary" type="submit" (click)="submitForm()">OK</button>
+        </nz-space-item>
+        <nz-space-item>
+          <nz-upload [nzBeforeUpload]="beforeUpload" [nzShowUploadList]="false">
+            <button nz-button><i nz-icon nzType="upload"></i>选择图片</button>
+          </nz-upload>
+        </nz-space-item>
+      </nz-space>
+
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzFor="faceDetector">面部检测器</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <nz-select formControlName="faceDetector" id="faceDetector" class="full-width">
+        <nz-option nzLabel="SSD Mobilenet V1" nzValue="ssd_mobilenetv1"></nz-option>
+        <nz-option nzLabel="Tiny Face Detector" nzValue="tiny_face_detector"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item *ngIf="faceDetector==='tiny_face_detector'">
+    <nz-form-label [nzSpan]="4" nzFor="inputSize">输入尺寸</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <nz-select formControlName="inputSize" id="inputSize" class="full-width">
+        <nz-option nzLabel="160 x 160" [nzValue]="160"></nz-option>
+        <nz-option nzLabel="224 x 224" [nzValue]="224"></nz-option>
+        <nz-option nzLabel="320 x 320" [nzValue]="320"></nz-option>
+        <nz-option nzLabel="416 x 416" [nzValue]="416"></nz-option>
+        <nz-option nzLabel="512 x 512" [nzValue]="512"></nz-option>
+        <nz-option nzLabel="608 x 608" [nzValue]="608"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+
+  <nz-form-item>
+    <nz-form-label [nzSpan]="4" nzFor="minConfidence">最小置信度</nz-form-label>
+    <nz-form-control [nzSpan]="14">
+      <nz-input-number formControlName="minConfidence" [nzMin]="1" [nzMax]="10" [nzStep]="1"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>
+
+</form>
