@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "face-show": {
+    "simon-lab": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/face-show",
+            "outputPath": "dist/simon-lab",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -64,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "face-show:build"
+            "browserTarget": "simon-lab:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "face-show:build:production"
+              "browserTarget": "simon-lab:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "face-show:build"
+            "browserTarget": "simon-lab:build"
           }
         },
         "test": {
@@ -108,16 +108,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "face-show:serve"
+            "devServerTarget": "simon-lab:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "face-show:serve:production"
+              "devServerTarget": "simon-lab:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "face-show"
+  "defaultProject": "simon-lab"
 }
